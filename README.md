@@ -1,2 +1,2 @@
 # firewall
-Simple conf file style wrapper for iptables and the option to run the firewall as a systemd service.
+Simple conf file style wrapper for iptables. Also provides the option to run firewall as a systemd service.
