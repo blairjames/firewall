@@ -13,5 +13,5 @@ The firewall can now be controlled using the standard systemd controls.
 To reinitialise after modifying rules: "sudo systemctl restart firewall" 
 
 # To view logs
-Following: "sudo journalctl -ef | grep IPTABLES"
-Static: "sudo journalctl -e | grep IPTABLES"
+- Following: "sudo journalctl -ef | grep IPTABLES"
+- Static: "sudo journalctl -e | grep IPTABLES"
