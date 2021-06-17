@@ -1,0 +1,43 @@
+#!/bin/bash
+# WARNING! - Creates a wide open firewall! 
+
+function warn() {
+  printf "\n\nWARNING!!"
+  sleep 2
+}
+
+function warning() {
+  warn
+  warn
+  printf "\n\nFirewall is about to be disabled!!\n\n"
+  sleep 2
+}
+
+warning
+
+#Flush all rules ----------------------------------
+iptables -F
+iptables -X
+#--------------------------------------------------
+
+#Set default behaviour of INPUT -------------------
+iptables -P INPUT ACCEPT
+iptables -I INPUT 1 -j LOG --log-prefix="IPTABLES-INPUT: "
+#--------------------------------------------------
+
+#Set default behaviour of FORWARD -----------------
+iptables -P FORWARD ACCEPT
+iptables -I FORWARD 1 -j LOG --log-prefix="IPTABLES-FOWARD: "
+#--------------------------------------------------
+
+#Set default behaviour of OUTPUT ------------------
+iptables -P OUTPUT ACCEPT
+iptables -I OUTPUT 1 -j LOG --log-prefix="IPTABLES-OUTPUT: "
+#--------------------------------------------------
+
+#Established Statefull Connections -----------------
+#iptables -A INPUT -m conntrack --ctstate ESTABLISHED,RELATED -j LOG --log-prefix "[iptables-established]" --log-level debug
+iptables -A INPUT -m conntrack --ctstate ESTABLISHED,RELATED -j ACCEPT
+iptables -A FORWARD -m conntrack --ctstate ESTABLISHED,RELATED -j ACCEPT
+iptables -A OUTPUT -m conntrack --ctstate ESTABLISHED,RELATED -j ACCEPT
+#----

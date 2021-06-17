@@ -1,0 +1,7 @@
+# Specify Source and destination IP Addresses / networks and UDP ports to be permitted by firewall.
+# Entries use "soure_address destination_address port,port,port" syntax
+# Both source and destination must be specified to help prevent unnessesary access being permitted.
+# Example:
+#192.168.0.1 192.168.0.0/24 53
+#192.168.0.1 192.168.0.2 443,80,22,21
+192.168.0.4 224.0.0.251 5353
