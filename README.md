@@ -7,4 +7,4 @@ Clone into /opt directory please.
 - copy the unit file "firewall_service" to "/etc/systemd/system/"
 - execute 
 ``` "sudo systemctl daemon-reload && sudo systemctl restart firewall && sudo systemctl enable firewall && sudo systemctl status firewall"
-```
+
