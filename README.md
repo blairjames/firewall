@@ -1,5 +1,5 @@
 # firewall
-Simple conf file style wrapper for iptables. Provides the option to run firewall as a systemd service.
+Simple configuration file style wrapper for iptables. Provides the option to run firewall as a systemd service.
 Clone into /opt directory please.
 
 # To run as a once off script to update the local firewall
